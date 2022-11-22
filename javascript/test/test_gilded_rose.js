@@ -1,20 +1,20 @@
 const fs = require('fs');
-const {assert} = require('chai');
-const {Shop, Item} = require('../src/gilded_rose.js');
+const { assert } = require('chai');
+const { Shop, Item } = require('../src/gilded_rose.js');
 
-describe("Gilded Rose", function() {
+describe("Gilded Rose", function () {
 
-  it("update quality of a normal item", function() {
+  it("update quality of a normal item", function () {
     const foo = new Item("foo", 20, 10);
 
     const shop = new Shop([foo]);
-    const items = shop.updateQuality();
+    const items = shop.updateQualityV2();
 
     assert.equal(foo.sellIn, 19);
     assert.equal(foo.quality, 9);
   });
 
-  specify('golden master', function() {
+  specify('golden master', function () {
     const { Shop, Item } = require("../src/gilded_rose");
 
     const items = [
@@ -39,7 +39,7 @@ describe("Gilded Rose", function() {
       actualLog.push(`-------- day ${day} --------`);
       actualLog.push("name, sellIn, quality");
       items.forEach(item => actualLog.push(`${item.name}, ${item.sellIn}, ${item.quality}`));
-      gildedRose.updateQuality();
+      gildedRose.updateQualityV2();
     }
 
     const text = fs.readFileSync("../golden-master/expected-output.txt", "UTF-8");
@@ -49,5 +49,17 @@ describe("Gilded Rose", function() {
     assert.deepEqual(actualLog, expectedLog);
 
   });
+
+
+  /*
+  it('should update the quality of a conjured item', () => {
+    const conjuredItem = new Item('Conjured Mana Cake', 3, 6);
+
+    const shop = new Shop([conjuredItem]);
+    const items = shop.updateQuality();
+
+    assert.equal(conjuredItem.sellIn, 2);
+    assert.equal(conjuredItem.quality, 4);
+  });*/
 
 })
