@@ -1,4 +1,3 @@
-const fs = require('fs');
 const { assert } = require('chai');
 const { Shop, Item } = require('../src/gilded_rose.js');
 

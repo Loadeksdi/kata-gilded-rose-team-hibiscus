@@ -17,17 +17,22 @@ class Shop {
 
   updateQuality() {
     this.items.forEach(item => {
-      switch (item.name) {
-        case 'Aged Brie':
+      switch (true) {
+        case item.name === 'Aged Brie':
           this.updateAgedBrie(item);
           item.sellIn--;
           break;
-        case 'Backstage passes to a TAFKAL80ETC concert':
+        case item.name === 'Backstage passes to a TAFKAL80ETC concert':
           this.updateTicket(item);
           item.sellIn--;
           break;
-        case 'Sulfuras, Hand of Ragnaros':
+        case item.name === 'Sulfuras, Hand of Ragnaros':
           this.updateSulfuras(item);
+          break;
+        case item.name.startsWith('Conjured'):
+          this.updateNormal(item);
+          this.updateNormal(item);
+          item.sellIn--;
           break;
         default:
           this.updateNormal(item);
