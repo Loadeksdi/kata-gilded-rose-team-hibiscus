@@ -28,7 +28,7 @@ describe("Normal Behavior", function () {
     const shop = new Shop([elixir, agingBad]);
 
     // shop.updateQuality();
-    shop.updateQualityV2();
+    shop.updateQuality();
 
     assert.equal(agingBad.quality, 28);
     assert.equal(elixir.quality, 8);
@@ -42,7 +42,7 @@ describe("Normal Behavior", function () {
     const shopItems = listNormalItems.map(i => new Item(i, 10, 0));
     const shop = new Shop(shopItems);
     // shop.updateQuality();
-    shop.updateQualityV2();
+    shop.updateQuality();
 
     // verification des proprietes
     shopItems.forEach((item) => {

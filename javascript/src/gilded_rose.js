@@ -15,7 +15,7 @@ class Shop {
   /!\ Do not change code above this line /!\
   */
 
-  updateQualityV2() {
+  updateQuality() {
     this.items.forEach(item => {
       switch (item.name) {
         case 'Aged Brie':
@@ -58,8 +58,8 @@ class Shop {
   }
 
   updateTicket(item) {
-    if (item.sellIn < 0) {
-      this.setQuality(item, -item.quality);
+    if (item.sellIn <= 0) {
+      item.quality = 0;
     } else if (item.sellIn <= 5) {
       this.setQuality(item, 3);
     } else if (item.sellIn <= 10) {

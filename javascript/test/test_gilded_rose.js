@@ -8,7 +8,7 @@ describe("Gilded Rose", function () {
     const foo = new Item("foo", 20, 10);
 
     const shop = new Shop([foo]);
-    const items = shop.updateQualityV2();
+    const items = shop.updateQuality();
 
     assert.equal(foo.sellIn, 19);
     assert.equal(foo.quality, 9);
@@ -39,7 +39,7 @@ describe("Gilded Rose", function () {
       actualLog.push(`-------- day ${day} --------`);
       actualLog.push("name, sellIn, quality");
       items.forEach(item => actualLog.push(`${item.name}, ${item.sellIn}, ${item.quality}`));
-      gildedRose.updateQualityV2();
+      gildedRose.updateQuality();
     }
 
     const text = fs.readFileSync("../golden-master/expected-output.txt", "UTF-8");
